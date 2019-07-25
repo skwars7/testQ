@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Search</title>
+        {% load staticfiles %}
+        <link href=”{% static 'style.css' %}” rel=”stylesheet” type=”text/css” />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        {% block extra_js %}
+
+        {% endblock %}
+    </head>
+
+    <body>
+        <div id="centered">
+            {% block main %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

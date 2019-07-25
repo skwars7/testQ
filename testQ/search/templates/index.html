@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block extra_js %}
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#searchSubmit').click(function() {
+		q = $('#q').val();
+		$('#results').html('&nbsp;').load( 'http://127.0.0.1:8000/users/?q=' + q);
+	});
+});
+$(document).ajaxStart(function() {
+	$('#spinner').show();
+}).ajaxStop(function() {
+	$('#spinner').hide();
+});
+</script>
+
+{% endblock %}
+
+{% block main %}
+
+<div>
+    <input type="text" id="q">
+    <input type="submit" id="searchSubmit" value="search">
+    <br>
+    <span class=”hint”>Type in a query string to search for users</span>    
+    <div class=”margin”>
+        <span id="spinner"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"></span>
+        <div id="results"></div>
+    </div>
+</div>
+{% endblock %}
